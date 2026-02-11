@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VISI & MISI | SKADIK 506</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .vision-section {
+        padding: 140px 6% 80px;
+        min-height: 100vh;
+      }
+
+      /* Vision Styling */
+      .vision-container {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto 100px;
+        position: relative;
+      }
+
+      .vision-container h2 {
+        font-size: 0.9rem;
+        color: var(--gold);
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .vision-box {
+        background: rgba(17, 34, 64, 0.4);
+        padding: 40px;
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        position: relative;
+        box-shadow: 0 0 30px rgba(197, 160, 89, 0.1);
+      }
+
+      .vision-box p {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--white);
+        font-style: italic;
+      }
+
+      /* Mission Grid */
+      .mission-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .mission-header h3 {
+        font-size: 2rem;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 80px;
+      }
+
+      .mission-card {
+        background: var(--navy-light);
+        padding: 30px;
+        border-radius: 4px;
+        border-bottom: 3px solid transparent;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .mission-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 3px solid var(--gold);
+        background: rgba(17, 34, 64, 0.8);
+      }
+
+      .mission-card i {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .mission-card h4 {
+        color: var(--white);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+
+      .mission-card p {
+        color: var(--slate);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Facilities & About Section */
+      .about-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        background: rgba(17, 34, 64, 0.5);
+        padding: 50px;
+        border-radius: 8px;
+        border: 1px solid rgba(197, 160, 89, 0.2);
+      }
+
+      .about-text h3 {
+        color: var(--gold);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .about-text p {
+        color: var(--white);
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      .facility-list {
+        list-style: none;
+      }
+
+      .facility-list li {
+        margin-bottom: 12px;
+        color: var(--slate);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .facility-list li i {
+        color: var(--gold);
+        font-size: 0.8rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        .about-info {
+          grid-template-columns: 1fr;
+        }
+        .vision-box p {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-area">
+            <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+          <img src="logo/au1.png" alt="TNI AU" class="logo-img" />
+          <img src="logo/skadik506.png" alt="Skadik 506" class="logo-img" />
+          <div class="logo-text">
+            <span class="main-title">SKADIK 506</span>
+            <span class="sub-title">Wingdik 500/Umum</span>
+          </div>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li>
+            <a href="visi_misi.html" class="nav-link active">Visi Misi</a>
+          </li>
+          <li><a href="organisasi.html" class="nav-link">Organisasi</a></li>
+          <li><a href="galeri.html" class="nav-link">Galeri</a></li>
+          <li><a href="berita.html" class="nav-link">Berita</a></li>
+          <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+          <li class="logo-ampuh-container">
+            <img src="logo/au2.png" alt="AU Ampuh" class="logo-ampuh" />
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="vision-section">
+      <div class="vision-container">
+        <h2>OUR VISION</h2>
+        <div class="vision-box">
+          <p>
+            "Menjadikan prajurit TNI AU yang ahli di bidang siber (cyber) dan
+            Teknologi Informasi (TI) yang adaptif, modern, profesional, unggul,
+            dan humanis."
+          </p>
+        </div>
+      </div>
+
+      <div class="mission-header">
+        <h3>MISI & TUJUAN STRATEGIS</h3>
+        <div class="underline" style="margin-bottom: 40px"></div>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <i class="fas fa-university"></i>
+          <h4>Wadah Pendidikan</h4>
+          <p>
+            Menjadi pusat pendalaman ilmu siber, keamanan informasi, dan
+            teknologi digital terkini bagi prajurit.
+          </p>
+        </div>
+
+        <div class="mission-card">
+          <i class="fas fa-user-shield"></i>
+          <h4>Garda Terdepan</h4>
+          <p>
+            Mencetak SDM kompeten yang siap menjadi benteng pertahanan utama
+            keamanan dunia maya negara.
+          </p>
+        </div>
+
+        <div class="mission-card">
+          <i class="fas fa-certificate"></i>
+          <h4>Sertifikasi & Pelatihan</h4>
+          <p>
+            Menyelenggarakan pelatihan khusus siber yang terstandarisasi dengan
+            sertifikasi kompetensi global.
+          </p>
+        </div>
+
+        <div class="mission-card">
+          <i class="fas fa-crosshairs"></i>
+          <h4>Peperangan Modern</h4>
+          <p>
+            Mempersiapkan prajurit dalam menghadapi dinamika peperangan
+            informasi dan ancaman non-kinetik.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-info">
+        <div class="about-text">
+          <h3>Fasilitas Cyber Lab</h3>
+          <p>
+            Untuk menunjang pendidikan yang komprehensif, Skadik 506 dilengkapi
+            dengan infrastruktur teknologi tingkat tinggi:
+          </p>
+          <ul class="facility-list">
+            <li>
+              <i class="fas fa-check-circle"></i> Simulasi Serangan & Pertahanan
+              Siber
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> Latihan Keamanan Jaringan
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> Analisis Bukti Digital
+              (Forensik)
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> Sistem Pembelajaran Online
+              Terintegrasi
+            </li>
+          </ul>
+        </div>
+        <div
+          class="about-text"
+          style="
+            border-left: 1px solid rgba(197, 160, 89, 0.2);
+            padding-left: 30px;
+          "
+        >
+          <h3>Tentang Skadik 506</h3>
+          <p>
+            Berada di bawah jajaran <strong>Wing Pendidikan 500/Umum</strong>,
+            Skadik 506 hadir sebagai jawaban taktis atas kebutuhan pertahanan
+            kedaulatan negara di era transformasi digital.
+          </p>
+          <p>
+            Kami berkomitmen mencetak teknokrat militer yang tidak hanya handal
+            secara teknis, namun juga menjunjung tinggi nilai humanis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Skadik 506</h3>
+          <p>
+            Pusat Pendidikan Siber dan Teknologi Informasi TNI AU yang Adaptif,
+            Modern, Profesional, Unggul, dan Humanis.
+          </p>
+          <img
+            src="logo/au2.png"
+            alt="AU Ampuh"
+            style="
+              height: 50px;
+              margin-top: 15px;
+              filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+            "
+          />
+        </div>
+
+        <div class="footer-box">
+          <h3>Navigasi Cepat</h3>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="visi_misi.html">Visi & Misi</a></li>
+            <li><a href="organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="berita.html">Warta Siber</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h3>Kontak Kami</h3>
+          <p>
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            Jl. Raya Semplak, Bogor, Jawa Barat
+          </p>
+          <p>
+            <i
+              class="fas fa-phone-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            +1 234 567 890
+          </p>
+          <p>
+            <i
+              class="fas fa-envelope"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            wingdik500@tni-au.mil.id
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Skadik 506 Wingdik 500/Umum TNI
+          AU. All Rights Reserved.
+        </p>
+        <p style="margin-top: 5px; font-size: 0.75rem">
+          Developed by <span class="dev-credit">Febrian Romelia Laily</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

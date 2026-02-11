@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GALERI SIBER | SKADIK 506</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .gallery-section {
+        padding: 120px 6% 60px;
+        min-height: 100vh;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .gallery-header h2 {
+        font-size: 2.5rem;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+      }
+
+      .gallery-header .underline {
+        width: 80px;
+        height: 4px;
+        background: var(--gold);
+        margin: 0 auto;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        background: var(--navy-light);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 25, 47, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .gallery-overlay i {
+        color: var(--gold);
+        font-size: 2rem;
+        transform: translateY(20px);
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover {
+        border-color: var(--gold);
+        box-shadow: 0 0 20px var(--gold-glow);
+        transform: translateY(-5px);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-item:hover .gallery-overlay i {
+        transform: translateY(0);
+      }
+
+      @media screen and (max-width: 768px) {
+        .gallery-header h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-area">
+          <a
+            href="index.html"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              text-decoration: none;
+            "
+          >
+            <img src="logo/au1.png" alt="TNI AU" class="logo-img" />
+            <img src="logo/skadik506.png" alt="Skadik 506" class="logo-img" />
+            <div class="logo-text">
+              <span class="main-title">SKADIK 506</span>
+              <span class="sub-title">Wingdik 500/Umum</span>
+            </div>
+          </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="visi_misi.html" class="nav-link">Visi Misi</a></li>
+          <li><a href="organisasi.html" class="nav-link">Organisasi</a></li>
+          <li><a href="galeri.html" class="nav-link active">Galeri</a></li>
+          <li><a href="berita.html" class="nav-link">Berita</a></li>
+          <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+          <li class="logo-ampuh-container">
+            <img src="logo/au2.png" alt="AU Ampuh" class="logo-ampuh" />
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="gallery-section">
+      <div class="gallery-header">
+        <h2>Dokumentasi Kegiatan</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="img/1.JPG" alt="Kegiatan 1" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/2.jpg" alt="Kegiatan 2" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/3.JPG" alt="Kegiatan 3" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/4.JPG" alt="Kegiatan 4" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/5.jpg" alt="Kegiatan 5" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/6.jpg" alt="Kegiatan 6" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/7.JPG" alt="Kegiatan 7" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/10.jpg" alt="Kegiatan 10" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/20.jpg" alt="Kegiatan 20" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/21.jpg" alt="Kegiatan 21" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/111.jpg" alt="Kegiatan 111" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/1111.jpg" alt="Kegiatan 1111" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/DSC04213.JPG" alt="Kegiatan DSC04213" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/IMG_0527.JPG" alt="Kegiatan IMG_0527" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/IMG_0600.JPG" alt="Kegiatan IMG_0600" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/aaa.JPG" alt="Kegiatan IMG_0600" />
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Skadik 506</h3>
+          <p>
+            Pusat Pendidikan Siber dan Teknologi Informasi TNI AU yang Adaptif,
+            Modern, Profesional, Unggul, dan Humanis.
+          </p>
+          <img
+            src="logo/au2.png"
+            alt="AU Ampuh"
+            style="
+              height: 50px;
+              margin-top: 15px;
+              filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+            "
+          />
+        </div>
+
+        <div class="footer-box">
+          <h3>Navigasi Cepat</h3>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="visi_misi.html">Visi & Misi</a></li>
+            <li><a href="organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="berita.html">Warta Siber</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h3>Kontak Kami</h3>
+          <p>
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            Jl. Raya Semplak, Bogor, Jawa Barat
+          </p>
+          <p>
+            <i
+              class="fas fa-phone-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            +1 234 567 890
+          </p>
+          <p>
+            <i
+              class="fas fa-envelope"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            wingdik500@tni-au.mil.id
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Skadik 506 Wingdik 500/Umum TNI
+          AU. All Rights Reserved.
+        </p>
+        <p style="margin-top: 5px; font-size: 0.75rem">
+          Developed by <span class="dev-credit">Febrian Romelia Laily</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

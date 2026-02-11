@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KOMANDO ORGANISASI | SKADIK 506</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .org-section {
+        padding: 140px 6% 80px;
+        min-height: 100vh;
+        background: radial-gradient(
+          circle at top,
+          rgba(197, 160, 89, 0.05) 0%,
+          transparent 70%
+        );
+      }
+
+      .org-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .org-header h2 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+
+      /* Hierarchy Layout */
+      .command-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .commander-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .staff-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      /* Command Card Styling */
+      .command-card {
+        background: rgba(17, 34, 64, 0.4);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 4px; /* Sudut tajam untuk kesan militer */
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .command-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--gold);
+      }
+
+      .command-card:hover {
+        background: rgba(17, 34, 64, 0.7);
+        border-color: var(--gold);
+        transform: translateY(-5px);
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.5),
+          0 0 20px var(--gold-glow);
+      }
+
+      .profile-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid var(--gold);
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+
+      .info-area {
+        flex-grow: 1;
+      }
+
+      .info-area h3 {
+        font-size: 1.1rem;
+        color: var(--white);
+        margin-bottom: 5px;
+        letter-spacing: 0.5px;
+      }
+
+      .info-area .rank {
+        color: var(--cyan);
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .info-area .position {
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba(197, 160, 89, 0.1);
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 2px;
+      }
+
+      /* Specific Style for Danskadik */
+      .commander-card {
+        max-width: 500px;
+        border: 2px solid var(--gold);
+        background: rgba(197, 160, 89, 0.05);
+      }
+
+      .commander-card .profile-circle {
+        width: 100px;
+        height: 100px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .command-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .command-card::before {
+          width: 100%;
+          height: 4px;
+          top: 0;
+        }
+        .info-area .rank {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-area">
+          <a
+            href="index.html"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              text-decoration: none;
+            "
+          >
+            <img src="logo/au1.png" alt="TNI AU" class="logo-img" />
+            <img src="logo/skadik506.png" alt="Skadik 506" class="logo-img" />
+            <div class="logo-text">
+              <span class="main-title">SKADIK 506</span>
+              <span class="sub-title">Wingdik 500/Umum</span>
+            </div>
+          </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="visi_misi.html" class="nav-link">Visi Misi</a></li>
+          <li>
+            <a href="organisasi.html" class="nav-link active">Organisasi</a>
+          </li>
+          <li><a href="galeri.html" class="nav-link">Galeri</a></li>
+          <li><a href="berita.html" class="nav-link">Berita</a></li>
+          <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+          <li class="logo-ampuh-container">
+            <img src="logo/au2.png" alt="AU Ampuh" class="logo-ampuh" />
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="org-section">
+      <div class="org-header">
+        <h2>Struktur Organisasi</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="command-wrapper">
+        <div class="commander-row">
+          <div class="command-card commander-card">
+            <div class="profile-circle">
+              <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="info-area">
+              <span class="rank">MAYOR / 539544</span>
+              <h3>I Nyoman Gede Aditya Azak Sudana., S.Kom.</h3>
+              <span class="position">Danskadik 506 Wingdik 500/Umum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="staff-grid">
+          <div class="command-card">
+            <div class="profile-circle"><i class="fas fa-user-tie"></i></div>
+            <div class="info-area">
+              <span class="rank">MAYOR / 538668</span>
+              <h3>Candra W., S.T., M.Han.</h3>
+              <span class="position">Kasiopsdik Skadik 506</span>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <div class="profile-circle"><i class="fas fa-user-cog"></i></div>
+            <div class="info-area">
+              <span class="rank">KAPTEN / 519040</span>
+              <h3>Joni Syofian</h3>
+              <span class="position">Ps. Kapokgadik Skadik 506</span>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <div class="profile-circle">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="info-area">
+              <span class="rank">KAPTEN / 114792</span>
+              <h3>Wahyu Suryodarsono, S.Tr.(Han), M.Sos.</h3>
+              <span class="position">Ps. Kasubsijur Skadik 506</span>
+            </div>
+          </div>
+
+          <div class="command-card">
+            <div class="profile-circle"><i class="fas fa-user"></i></div>
+            <div class="info-area">
+              <span class="rank">LETTU / 544284</span>
+              <h3>Bayu Pradika, A.Md.</h3>
+              <span class="position">Ps. Kasubsitama Skadik 506</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Skadik 506</h3>
+          <p>
+            Pusat Pendidikan Siber dan Teknologi Informasi TNI AU yang Adaptif,
+            Modern, Profesional, Unggul, dan Humanis.
+          </p>
+          <img
+            src="logo/au2.png"
+            alt="AU Ampuh"
+            style="
+              height: 50px;
+              margin-top: 15px;
+              filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+            "
+          />
+        </div>
+
+        <div class="footer-box">
+          <h3>Navigasi Cepat</h3>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="visi_misi.html">Visi & Misi</a></li>
+            <li><a href="organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="berita.html">Warta Siber</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h3>Kontak Kami</h3>
+          <p>
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            Jl. Raya Semplak, Bogor, Jawa Barat
+          </p>
+          <p>
+            <i
+              class="fas fa-phone-alt"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            +1 234 567 890
+          </p>
+          <p>
+            <i
+              class="fas fa-envelope"
+              style="color: var(--gold); margin-right: 10px"
+            ></i>
+            wingdik500@tni-au.mil.id
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="current-year"></span> Skadik 506 Wingdik 500/Umum TNI
+          AU. All Rights Reserved.
+        </p>
+        <p style="margin-top: 5px; font-size: 0.75rem">
+          Developed by <span class="dev-credit">Febrian Romelia Laily</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

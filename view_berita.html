@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WARTA KOMANDO | SKADIK 506</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .view-section {
+        padding: 160px 6% 100px;
+        min-height: 100vh;
+        background: radial-gradient(
+          circle at top right,
+          rgba(197, 160, 89, 0.05),
+          transparent 800px
+        );
+      }
+      .view-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 50px;
+      }
+      .article-main {
+        background: rgba(17, 34, 64, 0.4);
+        backdrop-filter: blur(20px);
+        padding: 50px;
+        border-radius: 4px;
+        border: 1px solid rgba(197, 160, 89, 0.15);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+      .article-header {
+        margin-bottom: 40px;
+      }
+      .article-header h1 {
+        font-size: 2.8rem;
+        color: var(--white);
+        margin-top: 15px;
+        line-height: 1.2;
+        font-weight: 800;
+      }
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--gold);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+      .meta-tag {
+        background: rgba(197, 160, 89, 0.1);
+        padding: 4px 12px;
+        border-left: 3px solid var(--gold);
+      }
+      .article-img-frame {
+        position: relative;
+        margin-bottom: 40px;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .article-img {
+        width: 100%;
+        display: block;
+      }
+      .article-body {
+        color: var(--slate);
+        line-height: 1.9;
+        font-size: 1.15rem;
+        text-align: justify;
+      }
+      .article-body p {
+        margin-bottom: 25px;
+      }
+      .sidebar-sticky {
+        position: sticky;
+        top: 120px;
+      }
+      .sidebar-title {
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .sidebar-title::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.3;
+      }
+      .feed-item {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+        text-decoration: none;
+      }
+      .feed-thumb {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border: 1px solid rgba(197, 160, 89, 0.3);
+      }
+      .feed-text h4 {
+        color: var(--slate);
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s;
+        line-height: 1.4;
+      }
+      .feed-item:hover .feed-text h4 {
+        color: var(--gold);
+      }
+      @media screen and (max-width: 1100px) {
+        .view-container {
+          grid-template-columns: 1fr;
+        }
+        .article-main {
+          padding: 30px;
+        }
+        .article-header h1 {
+          font-size: 2rem;
+        }
+        .sidebar-sticky {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-area">
+          <img src="logo/au1.png" alt="TNI AU" class="logo-img" />
+          <img src="logo/skadik506.png" alt="Skadik 506" class="logo-img" />
+          <div class="logo-text">
+            <span class="main-title">SKADIK 506</span>
+            <span class="sub-title">Wingdik 500/Umum</span>
+          </div>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="visi_misi.html" class="nav-link">Visi Misi</a></li>
+          <li><a href="organisasi.html" class="nav-link">Organisasi</a></li>
+          <li><a href="galeri.html" class="nav-link">Galeri</a></li>
+          <li><a href="berita.html" class="nav-link active">Berita</a></li>
+          <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+          <li class="logo-ampuh-container">
+            <img src="logo/au2.png" alt="AU Ampuh" class="logo-ampuh" />
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="view-section">
+      <div class="view-container">
+        <article class="article-main" id="article-content"></article>
+
+        <aside class="sidebar">
+          <div class="sidebar-sticky">
+            <h3 class="sidebar-title">Berita Terkait</h3>
+            <div id="side-feed"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script>
+      const newsDatabase = {
+        1: {
+          category: "Pendidikan",
+          title:
+            "Upacara Penutupan Orientasi Lapangan Siswa Sesarcabjur Siber TNI A-2 & Sejurba Lek IT A-46",
+          date: "12 JANUARI 2026",
+          img: "img/berita1.jpg",
+          body: `<p>Komandan Skadron Pendidikan (Skadik) 506, Mayor Lek I Nyoman G.A.A.S., S.Kom memimpin upacara penutupan orientasi lapangan Siswa Sesarcabjur Siber TNI A-2 dan Sejurba Lek IT A 46 di Lapangan Skadik 506, Bogor (12/01/2026).</p>
+                 <p>Masa orientasi diikuti oleh 73 orang siswa yang bertujuan untuk memperkenalkan kepada siswa, lingkungan disekitar Lanud Atang Sendjaja, Skadik 506, serta Wingdik 500/Umum. Dalam amanatnya Komandan menyampaikan, dengan selesainya masa orientasi ini diharapkan seluruh siswa sudah mengenal lingkungan operasional.</p>
+                 <p>Selanjutnya siswa diharapkan siap untuk belajar lebih giat lagi, agar mendapatkan ilmu dan pengetahuan baru dalam hal pengetahuan IT dan keamanan Siber yang di perlukan saat siswa kembali berdinas disatuan nantinya.</p>
+                 <p>"Orientasi lapangan ini bukan sekadar pembelajaran teknis, tetapi juga membentuk mental dan karakter yang siap menghadapi dinamika tugas kedepan. Saya berharap kalian dapat mengimplementasikan ilmu yang telah diperoleh demi mendukung tugas-tugas TNI," ujarnya.</p>`,
+        },
+        2: {
+          category: "Latihan",
+          title:
+            "Membentuk Karakter Prajurit Siber Melalui Tradisi dan Disiplin Militer Terintegrasi",
+          date: "12 JANUARI 2026",
+          img: "img/berita2.jpg",
+          body: `<p>Orientasi lapangan merupakan bagian integral dari kurikulum pendidikan yang bertujuan untuk mengasah kembali keterampilan teknis dan disiplin siswa di lingkungan militer Skadik 506.</p>
+                 <p>Upacara yang berlangsung khidmat ini diikuti oleh para instruktur Skadik 506. Dalam kegiatan tersebut, dilakukan pula simbolisasi penutupan melalui pelepasan pita tanda orientasi kepada perwakilan siswa dan Tradisi Penyiraman Siswa Sesarcabjur Siber A-2 dan Sejurba Lek IT A 46.</p>
+                 <p>Kegiatan ini mencakup berbagai simulasi lapangan dan pengenalan alutsista teknologi informasi yang akan menjadi kompetensi utama para siswa saat kembali ke satuan masing-masing nantinya untuk menjaga kedaulatan siber nasional.</p>`,
+        },
+        3: {
+          category: "Komando",
+          title:
+            "Tongkat Komando Skadik 506 Resmi Beralih ke Mayor Lek I Nyoman Gede Aditya",
+          date: "24 DESEMBER 2025",
+          img: "img/berita3.jpg",
+          body: `<p>Wing Pendidikan 500/Umum melaksanakan Upacara Serah Terima Jabatan (Sertijab) Komandan Skadik 506 dari Letkol Lek Rizan Fadli, S.T., M.Han. kepada Mayor Lek I Nyoman Gede Aditya, A. S., S.Kom.</p>
+                 <p>Upacara dipimpin oleh Komandan Wingdik 500/Umum Kolonel Pnb Dwi Pantinovan, M.Han., bertempat di lapangan Nawatunggal. Sertijab ini menandai visi baru dalam pengembangan pendidikan siber TNI AU yang lebih adaptif dan modern.</p>
+                 <p>Rangkaian upacara sertijab diawali dengan laporan Perwira Upacara, penghormatan pasukan, pembacaan Surat Keputusan, penandatanganan naskah serah terima jabatan dan Pakta Integritas, pengambilan sumpah jabatan serta penyerahan tunggul satuan.</p>`,
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const activeId = params.get("id") || 1;
+      const data = newsDatabase[activeId];
+
+      if (data) {
+        document.getElementById("article-content").innerHTML = `
+          <header class="article-header">
+            <div class="article-meta">
+              <span class="meta-tag">${data.category}</span>
+              <span><i class="far fa-calendar-alt"></i> ${data.date}</span>
+            </div>
+            <h1>${data.title}</h1>
+          </header>
+          <div class="article-img-frame">
+            <img src="${data.img}" class="article-img">
+          </div>
+          <div class="article-body">${data.body}</div>
+        `;
+        document.title = data.title + " | SKADIK 506";
+      }
+
+      const feedContainer = document.getElementById("side-feed");
+      Object.keys(newsDatabase).forEach((id) => {
+        if (id != activeId) {
+          feedContainer.innerHTML += `
+            <a href="view_berita.html?id=${id}" class="feed-item">
+              <img src="${newsDatabase[id].img}" class="feed-thumb">
+              <div class="feed-text">
+                <h4>${newsDatabase[id].title}</h4>
+              </div>
+            </a>
+          `;
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
